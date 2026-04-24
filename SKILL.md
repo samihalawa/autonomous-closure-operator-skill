@@ -33,6 +33,7 @@ Run at any time in any conversation. Consider the current thread, Chronicle/scre
 - KISS: smallest diff/action that works. No speculative abstractions, unnecessary refactors, placeholders, TODOs, or scaffolding unless immediately needed.
 - No fake values: no placeholders, lorem, `com.example`, `YOUR_API_KEY`, fake IDs, fake URLs, fake screenshots, fake metrics, fake evidence.
 - Skill-first and stack-native first. Check existing skills, native tools, and current system capabilities before bespoke workflow/code.
+- When a CLI command is part of the finish line, verify the actual CLI version/help in the current run. If bare `npx` resolves an old package, pin `@latest` or the required version and cite that command as proof.
 - No `done`, `fixed`, `complete`, `shipped`, or `works` without fresh proof in the same breath.
 - No tracker issue can be marked Done if the issue body still contains unresolved provider/dashboard/legal/account-migration/manual ops steps. Split or extend the residual work first, then close only the mitigated slice.
 - Every meaningful fix needs sibling sweep across same pattern, symbol, bug class, copy, config key, workflow hole, stale claim, adjacent surface, and likely variants.
@@ -55,12 +56,14 @@ Run at any time in any conversation. Consider the current thread, Chronicle/scre
 - Inspect task systems, in-progress items, blockers, recent status changes.
 - Inspect alerts, CI, deploys, cron/jobs, uptime, error surfaces, dashboards, inboxes, outreach/application threads.
 - For CI/deploys, do not trust workflow names. Prove the job actually performs the claimed action by checking revision/commit/runtime state, not only a green workflow named `deploy`.
+- For browser/smoke tests, verify the assertion matches current product behavior before changing app code. Stale smoke expectations are test defects, not product truth.
 - Inspect monetization, experiment, fraud/legal/evidence, and live operational risks.
 
 ### B. Truth Diff
 
 - Compare claimed state vs actual state.
 - Find stale claims, false finishes, partial closes, forgotten siblings, dead branches, unverified deploys, orphaned drafts, and status mismatches.
+- If a push/build/deploy command reports a transport error, fetch or query the remote/job state before retrying or rewriting history. A failed local process can still have advanced the remote.
 - Treat recurring failed checks, scheduled probes, and warning-only workflows as work items. Fix, suppress with evidence, create/extend a tracker issue, or log a blocker.
 - Reopen, finish, or log each one.
 
@@ -82,6 +85,7 @@ Pick top items that fit the run and execute now.
 - Choose smallest KISS move.
 - Execute.
 - Verify with fresh proof.
+- For visible UI complaints, proof must include the exact user-visible surface after the change, not just docs, guards, typecheck, or hidden config.
 - If a proof command fails because of a bad flag, wrong test include, missing auth, or stale invocation, retry with the repo-correct command or classify it as `blocked/non-applicable`. Never let a failed proof attempt silently disappear.
 - Run sibling sweep.
 - Ship/deploy/send/update/close.
@@ -167,6 +171,9 @@ Omit empty sections except `NEXT ACTION ALREADY QUEUED`.
 - Treating a green CI workflow name as deploy proof without runtime revision/commit verification.
 - Leaving long-running builds, deploys, smoke tests, or external jobs unrecorded in automation memory or `BLOCKERS.md`.
 - Ignoring recurring failed scheduled workflows because the current code change passed.
+- Using stale bare CLI behavior when `@latest` or official current docs prove a different command shape.
+- Claiming a visible UI change from non-visual evidence only.
+- Retrying or rewriting after a push failure without first checking remote truth.
 - Printing secrets, tokens, cookies, bank details, private identifiers, or financial coordinates in user-facing reports when redacted proof would suffice.
 - New abstraction/lib/framework where minimal native fix works.
 - Silent skip of a failing check.
