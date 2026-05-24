@@ -35,6 +35,7 @@ Run at any time in any conversation. Consider the current thread, Chronicle/scre
 - Skill-first and stack-native first. Check existing skills, native tools, and current system capabilities before bespoke workflow/code.
 - When a CLI command is part of the finish line, verify the actual CLI version/help in the current run. If bare `npx` resolves an old package, pin `@latest` or the required version and cite that command as proof.
 - No `done`, `fixed`, `complete`, `shipped`, or `works` without fresh proof in the same breath.
+- No permanent gate from one failure. Before blocking, disabling, hiding, removing, marking unavailable, or taking an option out of rotation, try 3 distinct recovery approaches and verify with 2 different source layers. External errors such as 403, 429, 500, empty results, selector misses, and timeouts are symptoms; log/report them unless independent evidence proves the capability is truly unavailable.
 - No tracker issue can be marked Done if the issue body still contains unresolved provider/dashboard/legal/account-migration/manual ops steps. Split or extend the residual work first, then close only the mitigated slice.
 - Every meaningful fix needs sibling sweep across same pattern, symbol, bug class, copy, config key, workflow hole, stale claim, adjacent surface, and likely variants.
 - Hard exit-loop: if one item takes >15 minutes, >3 failed attempts, or 2 identical failures, append one line to `BLOCKERS.md`: `symptom | last action | last error | current hypothesis | next best step`; then move on.
@@ -104,6 +105,7 @@ Pick top items that fit the run and execute now.
 - scheduled-failure sweep
 - stash/branch residue sweep
 - over-engineering sweep
+- anti-gate sweep: transient failures encoded as disabled features, hidden options, unavailable states, or removed rotation candidates
 - permission-loop sweep
 - looping-issue sweep
 - unknown-pattern sweep
